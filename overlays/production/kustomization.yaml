@@ -1,0 +1,7 @@
+namePrefix: prod-
+commonLabels:
+  tier: prod
+resources:
+- ../../base
+patches:
+- path: replica_count.yaml
