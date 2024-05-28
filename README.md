@@ -2,12 +2,19 @@
 
 Kube Academy Courses - Building Applications for Kubernetes
 
+With `kustomize`:
+
 ```bash
-$ kubectl apply -f deployment.yaml
-$ kubectl apply -f service.yaml
-$ kubectl get po -o wide
-$ kubectl get svc
-$ kubectl exec <pod_name> curl <service_ip>
-$ kubectl delete -f service.yaml
-$ kubectl delete -f deployment.yaml
+$ kustomize build base
+$ kustomize build overlays/production
+$ kustomize build overlays/production | kubectl apply -f -
+```
+
+With `kubectl`:
+
+```bash
+$ kubectl kustomize base
+$ kubectl kustomize overlays/production
+$ kubectl apply -k overlays/production
+$ kubectl delete -k overlays/production
 ```
