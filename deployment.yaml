@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sapp-deployment
+  labels:
+    app: kubeacademy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubeacademy
+  template:
+    metadata:
+      labels:
+        app: kubeacademy
+    spec:
+      containers:
+      - name: k8sapp-container
+        image: raileomor/k8sapp:0.1
