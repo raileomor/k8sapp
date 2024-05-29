@@ -2,19 +2,13 @@
 
 Kube Academy Courses - Building Applications for Kubernetes
 
-With `kustomize`:
-
 ```bash
-$ kustomize build base
-$ kustomize build overlays/production
-$ kustomize build overlays/production | kubectl apply -f -
-```
-
-With `kubectl`:
-
-```bash
-$ kubectl kustomize base
-$ kubectl kustomize overlays/production
-$ kubectl apply -k overlays/production
-$ kubectl delete -k overlays/production
+$ helm create build4kube
+$ helm install --generate-name ./build4kube --dry-run
+$ helm install --generate-name ./build4kube
+$ kubectl get all -A
+$ helm upgrade <release_name> ./build4kube
+$ kubectl describe deploy <deploy_name>
+$ helm rollback <release_name>
+$ helm package ./build4kube
 ```

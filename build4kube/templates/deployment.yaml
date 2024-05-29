@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8sapp-deployment
+  name: "{{ .Release.Name }}-k8sapp-deployment"
   labels:
     app: kubeacademy
 spec:
-  replicas: 2
+  replicas: {{ .Values.deploy.replicas }}
   selector:
     matchLabels:
       app: kubeacademy
@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: k8sapp-container
-        image: raileomor/k8sapp:0.1
+        image: "{{ .Values.deploy.image.repository }}:{{ .Chart.AppVersion }}"
