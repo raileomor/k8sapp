@@ -1,4 +1,0 @@
-deploy:
-  replicas: 2
-  image:
-    repository: raileomor/k8sapp
